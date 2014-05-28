@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+ <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:h="http://java.sun.com/jsf/html">
+    <h:head>
+        <title> Calculator Basic</title>
+    </h:head>
+     <h:body>
+         <h:column><h3 style="font-family: arial; font-variant: small-caps; color: #336699">Calculator Basic</h3></h:column>
+         <h:form>
+             <h:panelGrid columns="1" style="text-align: center; border: 1px solid #336699; padding: 5px; ">
+             <h:column>
+                 <h:inputText id="value1" value="#{calculatorService.value1}" 
+                              size="5" maxlength="5" style="text-align: right;"/>
+             </h:column>
+             <h:column>
+                 <h:inputText id="value2" value="#{calculatorService.value2}" 
+                             size="5" maxlength="5" style="text-align: right"/>
+             </h:column>
+             <h:panelGrid columns="2">
+                 <h:column >
+                     <h:selectOneMenu id="operand" value="#{calculatorService.operand}" 
+                                     style="text-align: center;">
+                         <f:selectItems value="#{calculatorService.operands}"/>
+                     </h:selectOneMenu>
+                 </h:column>
+                 <h:column><h:commandButton value="=" action="#{calculatorService.calculate}"/></h:column>
+             </h:panelGrid>
+             <h:column>
+                 <h:inputText id="result" value="#{calculatorService.result}" 
+                              readonly="true" size="5" style="font-weight: bold; text-align: right"/>
+             </h:column>
+         </h:panelGrid>
+         </h:form>
+     </h:body>
+ </html>
